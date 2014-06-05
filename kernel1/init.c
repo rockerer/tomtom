@@ -9,8 +9,18 @@ void init(void)
  
         // Zeichen i in den Videospeicher kopieren
         video[i * 2] = hw[i];
- 
+ 	video[i * 2 + 40] = hw[i];
         // 0x07 = Hellgrau auf Schwarz
         video[i * 2 + 1] = 0x07;
+	video[i*2+41]=0x34;
+	//video[i*2+1]=i % 255+ (16-i)*16;
     }
+}
+
+void init_2(void){
+	int i;
+	char* video = (char*) 0xb8000;
+	for(i = 0;i<4000;i+=1){
+		video[i]=i%255;
+	}
 }
